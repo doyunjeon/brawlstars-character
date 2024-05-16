@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 브롤스타즈 캐릭터 선택하기</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #f9a322;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color:#e85524;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e75520;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>랜덤 브롤스타즈 캐릭터 선택하기</h1>
+        <img id="characterImage" src="로고.png" alt="data:image/png;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">
+        <br>
+        <button onclick="selectRandomCharacter()">Random Character</button>
+    </div>
+
+    <script>
+        const characters = [
+            { name: '콜트', image: '콜트.jpeg' },
+            { name: '제시', image: '제시.jpeg' },
+            {name: '펄', image: '펄.jpeg'},
+            {name: '스쿼크', image:'다운로드.jpeg'},
+            {name: '재키', imge:'재키.jpeg'},
+            {name: '팽', image:'팽.jpeg'},
+            {name: '로사'},
+            {name: '크로우', image:'크로우.jpeg'},
+            {name: '레온', image:'레온.jpeg'},
+            {name: '스파이크'},
+            {name: '쉘리'},
+            {name:'안젤로'},
+            {name: '멜로디'},
+            {name: '브록'},
+            {name:'메이지'}
+
+      
+        ];
+
+        function selectRandomCharacter() {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            const randomCharacter = characters[randomIndex];
+            document.getElementById('characterImage').src = randomCharacter.image;
+            document.getElementById('characterImage').alt = randomCharacter.name;
+        }
+    </script>
+</body>
+</html>
